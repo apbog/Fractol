@@ -84,20 +84,22 @@ void mandelbrot(t_froctol *fr)
 
 void julia(t_froctol *fr)
 {
-	double x;
-	double y;
+	int x;
+	int y;
+	int size;
 	double k;
 	t_point pnt;
 	t_point new;
 
+	size = 1000;
 	x = 0;
-	while (x < 1000)
+	while (x < size)
 	{
 		y = 0;
-		while (y < 1000)
+		while (y < size)
 		{
-			pnt.x = x / 1000 * fr->data->re_z * 2 - fr->data->re_z;
-			pnt.y = y / 1000 * fr->data->im_z * 2 - fr->data->im_z;
+			pnt.x = (double)x / size * fr->data->re_z * 2 - fr->data->re_z;
+			pnt.y = (double)y / size * fr->data->im_z * 2 - fr->data->im_z;
 			k = 0;
 			while (k < 100)
 			{
@@ -186,7 +188,7 @@ void zoom(int key, t_froctol *fr)
 		fr->data->re_z = fr->data->re_z * 1.1;
 		fr->data->im_z = fr->data->im_z * 1.1;
 	}
-	mandelbrot(fr);
+	julia(fr);
 }
 
 int mouse_press(int button, int x, int y, void *param)
@@ -214,7 +216,7 @@ int main(int ac, char **cv)
 	// julia(fr);
 	// mandelbrot(fr);
 	mlx_hook(fr->win, 2, 0, key_press, fr);
-	// mlx_hook(fr->win, 4, 0, mouse_press, fr);
+	mlx_hook(fr->win, 4, 0, mouse_press, fr);
 	mlx_loop(fr->mlx);
 	return (1);
 }
