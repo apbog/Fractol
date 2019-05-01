@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME) :
 	@make -C libft
-	@clang -I $(INC) -c $(SRCS)
+	@clang -I $(INC) -c -O3 $(SRCS)
 	@clang $(OBJ) $(LIB) $(MLX) -o $(NAME)
 
 clean:
