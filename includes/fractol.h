@@ -8,12 +8,14 @@
 
 typedef struct s_data
 {
-	double re_z;
-	double im_z;
+	double re_z_min;
+	double re_z_max;
+	double im_z_min;
+	double im_z_max;
 	double p;
+	double q;
 	double p_min;
 	double p_max;
-	double q;
 	double q_min;
 	double q_max;
 	double r;
@@ -34,14 +36,22 @@ typedef struct	s_fractol
 	int			size_line;
 	int			endian;
 	int			type;
+	int			size;
+	int			k_max;
 	t_data		*data;
 }				t_fractol;
 
 typedef struct	s_point
 {
-	double x;
-	double y;
-	double z;
+	int			x;
+	int			y;
+	double		k;
+	double		x0;
+	double		y0;
+	double		x1;
+	double		y1;
+	double		p;
+	double		q;
 }				t_point;
 
 void hook(t_fractol *fr);
