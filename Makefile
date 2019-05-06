@@ -1,8 +1,24 @@
 NAME = fractol
 
-SRCS = sources/*.c
+SRCS = sources/calculation.c \
+sources/create.c \
+sources/end.c \
+sources/hook.c \
+sources/main.c \
+sources/move.c \
+sources/plot.c \
+sources/put_point.c \
+sources/zoom.c
 
-OBJ = *.o
+OBJ = calculation.o \
+create.o \
+end.o \
+hook.o \
+main.o \
+move.o \
+plot.o \
+put_point.o \
+zoom.o
 
 INC = includes/fractol.h
 
@@ -16,7 +32,7 @@ all: $(NAME)
 
 $(NAME) :
 	@make -C libft
-	@clang -I $(INC) -c -O3 $(SRCS)
+	@clang $(FLAGS) -I $(INC) -c -O3 $(SRCS)
 	@clang $(OBJ) $(LIB) $(MLX) -o $(NAME)
 
 clean:

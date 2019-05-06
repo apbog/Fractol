@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccollins <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/02 19:17:18 by ccollins          #+#    #+#             */
+/*   Updated: 2019/05/02 19:18:01 by ccollins         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
-t_fractol *create_fract(t_data *data, int type)
+t_fractol	*create_fract(t_data *data, int type)
 {
 	t_fractol *fr;
 
@@ -10,7 +22,7 @@ t_fractol *create_fract(t_data *data, int type)
 	fr->win = mlx_new_window(fr->mlx, 1500, 1000, "Fract'ol");
 	fr->img = mlx_new_image(fr->mlx, 1500, 1000);
 	fr->data_addr = mlx_get_data_addr(fr->img, &(fr->bits_per_pixel),
-									  &(fr->size_line), &(fr->endian));
+		&(fr->size_line), &(fr->endian));
 	fr->data = data;
 	fr->type = type;
 	fr->size = 1000;
@@ -18,7 +30,7 @@ t_fractol *create_fract(t_data *data, int type)
 	return (fr);
 }
 
-t_data *create_data(void)
+t_data		*create_data(void)
 {
 	t_data *data;
 
